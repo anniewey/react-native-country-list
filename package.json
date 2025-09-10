@@ -3,6 +3,7 @@
   "version": "1.0.10",
   "description": "A react native country selection list",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "test"
   },
