@@ -10,7 +10,7 @@ import { searchIcon, countrySelectionTick, countries } from './Constants';
  * @param {*} params
  */
 const ItemView = (params) => {  
-  let text = `${params.item.name} (+${params.item.callingCode})`;
+  let text = `${params.item.name}`; //(+${params.item.callingCode})
   let selected = null;
   if (params.selected != null && params.selected.callingCode === params.item.callingCode) {
     selected = <Image source={countrySelectionTick} style={styles.selectionTick} />;
@@ -78,7 +78,7 @@ export default class CountrySelection extends React.Component {
   }
 
   render() {
-    const { selected, action } = this.props;
+    const { selected, action, searchText } = this.props;
     const { sections } = this.state;
 
     return (
@@ -88,8 +88,8 @@ export default class CountrySelection extends React.Component {
             <Image source={searchIcon} style={styles.searchIcon} />
             <TextInput
               style={styles.textInput}
-              placeholder= 'Search'
-              placeholderTextColor="#2d2926"
+              placeholder= {searchText || 'Search'}
+              placeholderTextColor="#999999"
               enablesReturnKeyAutomatically
               clearButtonMode="while-editing"
               onChangeText={text => this.onChangeSearchText(text)}
